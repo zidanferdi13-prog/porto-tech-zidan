@@ -1,208 +1,339 @@
 export const allProjects = [
   {
-    slug: "smart-factory-node-monitoring",
+    slug: "pc-mini-industrial-dashboard",
     title: {
-      id: "Smart Factory Node Monitoring",
-      en: "Smart Factory Node Monitoring"
+      id: "PC Mini Industrial Dashboard",
+      en: "PC Mini Industrial Dashboard",
     },
     description: {
-      id: "Sistem monitoring vibration dan temperature untuk mendukung preventive maintenance pada line produksi.",
-      en: "A vibration and temperature monitoring system to support preventive maintenance on production lines."
+      id: "Dashboard real-time produksi dengan display PC Mini di lantai pabrik, terintegrasi langsung dengan PLC mesin melalui Raspberry Pi gateway.",
+      en: "Real-time production dashboard displayed on a PC Mini on the factory floor, directly integrated with machine PLCs via a Raspberry Pi gateway.",
     },
-    image:
-      "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1000&q=80",
-    alt: "sensor and pcb",
-    tags: ["ESP32", "MQTT", "React"],
-    categories: ["iot", "fullstack"],
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80",
+    alt: "industrial panel with raspberry pi",
+    tags: ["Raspberry Pi", "PLC", "Node.js", "WebSocket", "React"],
+    categories: ["iot", "fullstack", "dashboard"],
     role: {
       id: "Lead IoT Engineer",
-      en: "Lead IoT Engineer"
+      en: "Lead IoT Engineer",
     },
     timeline: {
-      id: "4 bulan",
-      en: "4 months"
+      id: "4 minggu",
+      en: "4 weeks",
     },
     problem: {
-      id: "Tim maintenance menerima laporan kondisi mesin secara terlambat sehingga indikasi kerusakan sering baru diketahui saat downtime sudah terjadi.",
-      en: "Maintenance teams received machine condition reports too late, so early failure indicators were often detected only after downtime occurred."
+      id: "Operator dan tim maintenance harus berjalan ke panel kontrol utama setiap kali ingin melihat status mesin M-Tech. Tidak ada display real-time di lantai produksi sehingga indikasi awal kerusakan sering terlewat hingga terjadi downtime.",
+      en: "Operators and maintenance teams had to walk to the main control panel every time they needed to check M-Tech machine status. No real-time display on the production floor meant early failure indicators were often missed until downtime occurred.",
     },
     solution: {
-      id: "Membangun edge node berbasis ESP32 dengan sensor vibration-temperature yang mengirim data kontinu ke dashboard maintenance real-time.",
-      en: "Built ESP32-based edge nodes with vibration-temperature sensors that continuously stream data to a real-time maintenance dashboard."
+      id: "Memasang PC Mini di dekat line produksi dengan dashboard web real-time. Raspberry Pi bertindak sebagai gateway yang membaca data dari PLC mesin dan mengirimkannya ke backend untuk ditampilkan di dashboard.",
+      en: "Installed a PC Mini near the production line with a real-time web dashboard. A Raspberry Pi acts as a gateway that reads data from machine PLCs and sends it to the backend for dashboard display.",
     },
     architecture: [
       {
-        id: "ESP32 membaca sensor setiap 2 detik",
-        en: "ESP32 reads sensors every 2 seconds"
+        id: "PLC mesin M-Tech mengirim data produksi via Modbus TCP",
+        en: "M-Tech machine PLC sends production data via Modbus TCP",
       },
       {
-        id: "Data dikirim ke MQTT broker dengan QoS 1",
-        en: "Data is sent to MQTT broker using QoS 1"
+        id: "Raspberry Pi gateway membaca dan memproses data setiap 2 detik",
+        en: "Raspberry Pi gateway reads and processes data every 2 seconds",
       },
       {
-        id: "Node.js subscriber melakukan validasi threshold",
-        en: "Node.js subscriber validates threshold values"
+        id: "Node.js backend menerima data dan push via WebSocket",
+        en: "Node.js backend receives data and pushes via WebSocket",
       },
       {
-        id: "WebSocket push update ke React dashboard",
-        en: "WebSocket pushes updates to the React dashboard"
-      }
+        id: "React dashboard pada PC Mini menampilkan visual real-time tanpa refresh",
+        en: "React dashboard on PC Mini displays real-time visuals without page refresh",
+      },
     ],
     outcomes: [
       {
-        id: "Kecepatan deteksi gejala awal kerusakan meningkat hingga 35%",
-        en: "Early failure symptom detection speed improved by up to 35%"
+        id: "Operator dapat melihat kondisi mesin secara real-time langsung dari lantai produksi",
+        en: "Operators can see machine conditions in real-time directly from the production floor",
       },
       {
-        id: "Downtime tidak terencana berkurang hingga 18%",
-        en: "Unplanned downtime was reduced by up to 18%"
+        id: "Indikasi awal kerusakan terdeteksi 15-20 menit lebih cepat dari sebelumnya",
+        en: "Early failure indicators are detected 15-20 minutes faster than before",
       },
       {
-        id: "Waktu respons maintenance turun dari hitungan jam menjadi hitungan menit",
-        en: "Maintenance response time decreased from hours to minutes"
-      }
+        id: "Tim maintenance tidak perlu lagi berjalan ke panel kontrol untuk pengecekan rutin",
+        en: "Maintenance team no longer needs to walk to the control panel for routine checks",
+      },
     ],
     links: {
-      demo: "#",
-      repo: "#"
-    }
+      demo: null,
+      repo: null,
+    },
   },
   {
-    slug: "order-management-platform",
+    slug: "rfid-workforce-management",
     title: {
-      id: "Order Management Platform",
-      en: "Order Management Platform"
+      id: "RFID Workforce & Meal Management",
+      en: "RFID Workforce & Meal Management",
     },
     description: {
-      id: "Platform multi-role untuk approval, kontrol stok, dan procurement analytics dalam satu alur kerja.",
-      en: "A multi-role platform for approvals, inventory control, and procurement analytics in one workflow."
+      id: "Sistem absensi dan tracking konsumsi makan berbasis RFID card dengan Raspberry Pi, sinkronisasi cloud, dan laporan otomatis.",
+      en: "An RFID card-based attendance and meal consumption tracking system with Raspberry Pi, cloud synchronization, and automated reports.",
     },
-    image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1000&q=80",
-    alt: "code editor",
-    tags: ["Next.js", "Node.js", "PostgreSQL"],
-    categories: ["fullstack"],
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1000&q=80",
+    alt: "rfid card reader",
+    tags: ["Raspberry Pi", "RFID", "Node.js", "PostgreSQL", "Cloud Sync"],
+    categories: ["iot", "fullstack", "enterprise"],
+    role: {
+      id: "IoT System Engineer",
+      en: "IoT System Engineer",
+    },
+    timeline: {
+      id: "3 minggu",
+      en: "3 weeks",
+    },
+    problem: {
+      id: "Absensi dan tracking konsumsi makan karyawan masih manual menggunakan kertas atau kartu fisik tanpa data terpusat. Rekapitulasi memakan waktu dan rawan kesalahan input.",
+      en: "Attendance and meal consumption tracking were still manual using paper or physical cards with no centralized data. Recaps were time-consuming and prone to input errors.",
+    },
+    solution: {
+      id: "Membangun sistem RFID tap berbasis Raspberry Pi di titik-titik strategis. Karyawan cukup menempelkan kartu RFID, data otomatis tercatat dan sinkron ke cloud untuk dashboard admin dan laporan.",
+      en: "Built an RFID tap system based on Raspberry Pi at strategic points. Employees simply tap their RFID card, data is automatically recorded and synced to the cloud for admin dashboards and reports.",
+    },
+    architecture: [
+      {
+        id: "Raspberry Pi dengan modul RFID RC522 membaca kartu karyawan",
+        en: "Raspberry Pi with RFID RC522 module reads employee cards",
+      },
+      {
+        id: "Data tap dikirim ke cloud API via HTTP dengan retry logic",
+        en: "Tap data is sent to cloud API via HTTP with retry logic",
+      },
+      {
+        id: "Node.js backend memvalidasi dan menyimpan ke PostgreSQL",
+        en: "Node.js backend validates and stores data in PostgreSQL",
+      },
+      {
+        id: "Dashboard admin menampilkan rekap absensi dan konsumsi harian",
+        en: "Admin dashboard shows attendance and daily consumption recaps",
+      },
+    ],
+    outcomes: [
+      {
+        id: "Proses absensi dari 5 menit manual menjadi < 1 detik tap card",
+        en: "Attendance process reduced from 5 minutes manual to < 1 second tap",
+      },
+      {
+        id: "Rekap konsumsi makan otomatis tanpa intervensi admin",
+        en: "Automated meal consumption recap with zero admin intervention",
+      },
+      {
+        id: "Data real-time tersedia kapan saja untuk keperluan audit dan laporan",
+        en: "Real-time data available anytime for audit and reporting needs",
+      },
+    ],
+    links: {
+      demo: null,
+      repo: null,
+    },
+  },
+  {
+    slug: "manufacturing-order-dashboard",
+    title: {
+      id: "Manufacturing Order Dashboard",
+      en: "Manufacturing Order Dashboard",
+    },
+    description: {
+      id: "Dashboard monitoring MO (Manufacturing Order) dengan KPI real-time, tracking status line, dan completion rate untuk tim produksi dan QA.",
+      en: "A Manufacturing Order (MO) monitoring dashboard with real-time KPIs, production line status tracking, and completion rates for Production and QA teams.",
+    },
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+    alt: "data dashboard analytics",
+    tags: ["React", "Express.js", "PostgreSQL", "KPI", "Dashboard"],
+    categories: ["fullstack", "dashboard"],
     role: {
       id: "Fullstack Developer",
-      en: "Fullstack Developer"
+      en: "Fullstack Developer",
     },
     timeline: {
-      id: "3 bulan",
-      en: "3 months"
+      id: "3 minggu",
+      en: "3 weeks",
     },
     problem: {
-      id: "Proses approval order dan validasi stok tersebar di banyak spreadsheet sehingga menimbulkan bottleneck antar departemen.",
-      en: "Order approval and stock validation were spread across multiple spreadsheets, creating cross-department bottlenecks."
+      id: "Tim produksi kesulitan memantau status Manufacturing Order (MO) secara real-time. Data MO tersebar di laporan harian dan spreadsheet, sehingga keterlambatan produksi baru diketahui saat akhir shift.",
+      en: "The production team struggled to monitor Manufacturing Order (MO) status in real-time. MO data was scattered across daily reports and spreadsheets, so production delays were only discovered at the end of each shift.",
     },
     solution: {
-      id: "Mendesain platform web terpusat dengan role-based access, pipeline approval terstruktur, dan analytics procurement harian.",
-      en: "Designed a centralized web platform with role-based access, structured approval pipelines, and daily procurement analytics."
+      id: "Mengembangkan dashboard MO terpusat dengan KPI cards, progress bar per order, dan notifikasi status. Data diambil langsung dari database produksi melalui REST API service.",
+      en: "Developed a centralized MO dashboard with KPI cards, per-order progress bars, and status notifications. Data is pulled directly from the production database via a REST API service.",
     },
     architecture: [
       {
-        id: "Frontend Next.js untuk multi-role workflow",
-        en: "Next.js frontend for multi-role workflows"
+        id: "Data MO dari database produksi diakses via REST API",
+        en: "MO data from the production database is accessed via REST API",
       },
       {
-        id: "API Node.js untuk orchestrasi approval",
-        en: "Node.js API for approval orchestration"
+        id: "Express.js backend menyediakan endpoint dengan query optimasi",
+        en: "Express.js backend provides endpoints with optimized queries",
       },
       {
-        id: "PostgreSQL untuk transaksi dan audit trail",
-        en: "PostgreSQL for transactions and audit trails"
+        id: "React dashboard autorefresh setiap 30 detik untuk data real-time",
+        en: "React dashboard auto-refreshes every 30 seconds for real-time data",
       },
       {
-        id: "Caching query laporan dengan Redis",
-        en: "Report query caching with Redis"
-      }
+        id: "Filter by line, status, dan periode untuk analisis lebih dalam",
+        en: "Filter by line, status, and period for deeper analysis",
+      },
     ],
     outcomes: [
       {
-        id: "Siklus approval berkurang dari 2 hari menjadi sekitar 4 jam",
-        en: "Approval cycle was reduced from 2 days to around 4 hours"
+        id: "Visibilitas MO real-time tanpa harus menunggu laporan akhir shift",
+        en: "Real-time MO visibility without waiting for end-of-shift reports",
       },
       {
-        id: "Kesalahan input order berkurang hingga 40%",
-        en: "Order input errors were reduced by up to 40%"
+        id: "Tim produksi dapat mengidentifikasi bottleneck 2-3 jam lebih cepat",
+        en: "Production team can identify bottlenecks 2-3 hours faster",
       },
       {
-        id: "Tim manajemen mendapatkan visibilitas KPI procurement secara real-time",
-        en: "Management gained real-time visibility of procurement KPIs"
-      }
+        id: "Completion rate harian terpantau langsung oleh supervisor dan manajer",
+        en: "Daily completion rate is directly monitored by supervisors and managers",
+      },
     ],
     links: {
-      demo: "#",
-      repo: "#"
-    }
+      demo: null,
+      repo: null,
+    },
   },
   {
-    slug: "field-device-mobile-dashboard",
+    slug: "iot-device-health-monitor",
     title: {
-      id: "Field Device Mobile Dashboard",
-      en: "Field Device Mobile Dashboard"
+      id: "IoT Device Health Monitor",
+      en: "IoT Device Health Monitor",
     },
     description: {
-      id: "Aplikasi mobile untuk kontrol perangkat lapangan dengan notifikasi alarm kritis secara real-time.",
-      en: "A mobile app for field device control with real-time critical alert notifications."
+      id: "Sistem monitoring kesehatan perangkat IoT, server, dan jaringan berbasis cron dengan notifikasi otomatis ke Telegram. Zero-cost improvement.",
+      en: "A health monitoring system for IoT devices, servers, and network equipment based on cron jobs with automatic Telegram notifications. A zero-cost improvement.",
     },
-    image:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=80",
-    alt: "mobile dashboard",
-    tags: ["React Native", "Socket.IO", "Firebase"],
-    categories: ["mobile", "iot"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80",
+    alt: "server rack monitoring",
+    tags: ["Bash", "Cron", "Telegram Bot", "Ping", "Monitoring"],
+    categories: ["iot", "devops"],
     role: {
-      id: "IoT + Mobile Engineer",
-      en: "IoT + Mobile Engineer"
+      id: "IoT System Engineer",
+      en: "IoT System Engineer",
     },
     timeline: {
-      id: "2.5 bulan",
-      en: "2.5 months"
+      id: "1 minggu",
+      en: "1 week",
     },
     problem: {
-      id: "Supervisor lapangan kesulitan memantau status perangkat saat berada jauh dari panel kontrol utama.",
-      en: "Field supervisors struggled to monitor device status when away from the main control panel."
+      id: "Tidak ada sistem monitoring untuk perangkat IoT, server, dan jaringan kantor. Downtime baru diketahui saat ada komplain dari pengguna atau saat ada device yang tidak terhubung ke sistem produksi.",
+      en: "There was no monitoring system for IoT devices, servers, and office network equipment. Downtime was only discovered when users complained or when a device disconnected from the production system.",
     },
     solution: {
-      id: "Membangun aplikasi mobile untuk monitoring dan kontrol terbatas dengan notifikasi alarm prioritas tinggi agar respons insiden lebih cepat.",
-      en: "Built a mobile app for monitoring and limited control with high-priority alarm notifications to speed up incident response."
+      id: "Membangun sistem monitoring berbasis cron job dengan ping sweep dan pengecekan port. Status device dikirim otomatis ke Telegram group tim IT. Total biaya: Rp 0 (menggunakan infrastruktur existing).",
+      en: "Built a cron-based monitoring system with ping sweeps and port checks. Device status is automatically sent to the IT team's Telegram group. Total cost: Rp 0 (using existing infrastructure).",
     },
     architecture: [
       {
-        id: "Device gateway publish data status via Socket.IO",
-        en: "Device gateway publishes status data via Socket.IO"
+        id: "Cron job menjalankan ping ke semua device setiap 5 menit",
+        en: "Cron job pings all devices every 5 minutes",
       },
       {
-        id: "Service backend mengelola alarm dan escalation",
-        en: "Backend service manages alarms and escalation flow"
+        id: "Script memeriksa status UP/DOWN dan mencatat histori",
+        en: "Script checks UP/DOWN status and logs history",
       },
       {
-        id: "React Native app menerima push event real-time",
-        en: "React Native app receives real-time push events"
+        id: "Jika device DOWN, notifikasi otomatis dikirim ke Telegram",
+        en: "If a device is DOWN, automatic notification is sent to Telegram",
       },
       {
-        id: "Firebase dipakai untuk notifikasi lintas platform",
-        en: "Firebase handles cross-platform push notifications"
-      }
+        id: "Dashboard web untuk melihat histori uptime device",
+        en: "Web dashboard to view device uptime history",
+      },
     ],
     outcomes: [
       {
-        id: "Waktu respons insiden lapangan berkurang hingga 50%",
-        en: "Field incident response time was reduced by up to 50%"
+        id: "Downtime perangkat terdeteksi dalam < 5 menit (dari sebelumnya berjam-jam)",
+        en: "Device downtime detected in < 5 minutes (down from hours)",
       },
       {
-        id: "Adopsi aplikasi mobile oleh operator mencapai > 90%",
-        en: "Mobile app adoption by operators reached > 90%"
+        id: "Tim IT mendapat notifikasi langsung tanpa perlu dicek manual",
+        en: "IT team receives immediate notifications without manual checks",
       },
       {
-        id: "Alarm kritis tidak lagi terlewat selama operasional shift malam",
-        en: "Critical alarms were no longer missed during night-shift operations"
-      }
+        id: "Implementasi zero-cost tanpa tambahan hardware atau lisensi",
+        en: "Zero-cost implementation without additional hardware or licenses",
+      },
     ],
     links: {
-      demo: "#",
-      repo: "#"
-    }
-  }
+      demo: null,
+      repo: null,
+    },
+  },
+  {
+    slug: "quality-control-rework-dashboard",
+    title: {
+      id: "Quality Control & Rework Dashboard",
+      en: "Quality Control & Rework Dashboard",
+    },
+    description: {
+      id: "Dashboard digital untuk tracking data rework dan QC dengan filter multi-dimensi, visualisasi chart, dan ekspor ke Excel.",
+      en: "A digital dashboard for rework and QC data tracking with multi-dimensional filters, chart visualizations, and Excel export.",
+    },
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
+    alt: "quality analytics dashboard",
+    tags: ["React", "Express.js", "Chart.js", "PostgreSQL", "Export"],
+    categories: ["fullstack", "dashboard", "quality"],
+    role: {
+      id: "Fullstack Developer",
+      en: "Fullstack Developer",
+    },
+    timeline: {
+      id: "2 minggu",
+      en: "2 weeks",
+    },
+    problem: {
+      id: "Data rework dan QC dicatat manual di form kertas dan baru diinput ke Excel di akhir hari. Akibatnya analisis tren rework lambat, sulit mengidentifikasi pola kerusakan, dan pelaporan ke manajemen memakan waktu.",
+      en: "Rework and QC data were manually recorded on paper forms and only entered into Excel at the end of the day. This caused slow trend analysis, difficulty identifying damage patterns, and time-consuming management reporting.",
+    },
+    solution: {
+      id: "Membangun dashboard digital dengan input form real-time, filter by jenis rework, departemen, dan periode. Ditambah visualisasi chart untuk analisis tren dan tombol ekspor Excel satu klik.",
+      en: "Built a digital dashboard with real-time input forms, filters by rework type, department, and period. Added chart visualizations for trend analysis and one-click Excel export.",
+    },
+    architecture: [
+      {
+        id: "Form input digital menggantikan form kertas manual",
+        en: "Digital input forms replace manual paper forms",
+      },
+      {
+        id: "Data rework tersimpan di PostgreSQL dengan struktur ternormalisasi",
+        en: "Rework data stored in PostgreSQL with normalized structure",
+      },
+      {
+        id: "Chart.js untuk visualisasi tren rework per departemen dan jenis",
+        en: "Chart.js for rework trend visualization by department and type",
+      },
+      {
+        id: "Fitur ekspor Excel untuk kebutuhan laporan manajemen",
+        en: "Excel export feature for management reporting needs",
+      },
+    ],
+    outcomes: [
+      {
+        id: "Input data rework dari 30 menit (manual) menjadi 2 menit (digital)",
+        en: "Rework data entry reduced from 30 minutes (manual) to 2 minutes (digital)",
+      },
+      {
+        id: "Analisis tren rework dapat dilakukan kapan saja tanpa rekap manual",
+        en: "Rework trend analysis can be done anytime without manual recaps",
+      },
+      {
+        id: "Laporan manajemen dapat diekspor dalam 1 klik tanpa input ulang data",
+        en: "Management reports can be exported in 1 click without re-entering data",
+      },
+    ],
+    links: {
+      demo: null,
+      repo: null,
+    },
+  },
 ];
 
 export const featuredProjects = allProjects.slice(0, 3);

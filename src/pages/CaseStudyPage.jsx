@@ -9,28 +9,28 @@ export default function CaseStudyPage() {
     navOutcome: isId ? "Hasil" : "Outcome",
     eyebrow: isId ? "STUDI KASUS INDUSTRI" : "INDUSTRIAL CASE STUDY",
     roleIntro: isId
-      ? "Peran: Lead IoT & Fullstack Developer. Mengubah pencatatan rework manual menjadi sistem digital live monitoring."
-      : "Role: Lead IoT & Fullstack Developer. Transformed manual rework logging into a live digital monitoring system.",
+      ? "Peran: Lead IoT Engineer & Fullstack Developer. Membangun sistem monitoring mesin M-Tech dengan PC Mini display di lantai produksi."
+      : "Role: Lead IoT Engineer & Fullstack Developer. Built an M-Tech machine monitoring system with a PC Mini display on the production floor.",
     problemBody: isId
-      ? "Data rework tercatat di kertas dan baru di-input di akhir shift. Dampaknya: keterlambatan data hingga 24 jam, sulit tracing akar masalah, dan lambat melakukan perbaikan di line produksi."
-      : "Rework data was recorded on paper and entered only at the end of each shift. This caused delays up to 24 hours, weak root-cause traceability, and slower corrective actions on the production line.",
+      ? "Operator dan tim maintenance harus berjalan ke panel kontrol utama untuk melihat status mesin M-Tech. Tidak ada display di lantai produksi yang menunjukkan data real-time kondisi mesin, suhu, dan hasil produksi. Akibatnya, indikasi awal kerusakan sering terlewat hingga downtime terjadi, dan data historis tidak tercatat secara otomatis."
+      : "Operators and maintenance teams had to walk to the main control panel to check the M-Tech machine status. There was no display on the production floor showing real-time machine conditions, temperature, and production output. As a result, early failure indicators were often missed until downtime occurred, and historical data was not automatically recorded.",
     architectureTitle: isId ? "Arsitektur Sistem" : "System Architecture",
     technicalTitle: isId ? "Implementasi Teknis" : "Technical Implementation",
-    hardware: isId ? "Layer Perangkat Keras" : "Hardware Layer",
+    hardware: isId ? "Layer PLC & Field Device" : "PLC & Field Device Layer",
     hardwareBody: isId
-      ? "ESP32 membaca sensor count dan status line. Firmware memiliki auto-reconnect logic untuk menjaga kestabilan saat jaringan tidak stabil."
-      : "ESP32 reads count sensors and production line status. Firmware includes auto-reconnect logic to maintain stability during network issues.",
-    infra: isId ? "Layer Infrastruktur" : "Infrastructure Layer",
+      ? "PLC mesin M-Tech mengirim data produksi (suhu, kecepatan, status running, count produksi) via protokol Modbus TCP. Raspberry Pi berperan sebagai gateway yang membaca register PLC setiap 2 detik dan menerjemahkan data mentah menjadi format JSON yang siap diproses."
+      : "The M-Tech machine PLC sends production data (temperature, speed, running status, production count) via Modbus TCP. A Raspberry Pi acts as a gateway that reads PLC registers every 2 seconds and translates raw data into JSON format ready for processing.",
+    infra: isId ? "Layer Backend & Pipeline" : "Backend & Pipeline Layer",
     infraBody: isId
-      ? "Data publish lewat MQTT ke backend Node.js. Redis dipakai sebagai transient stream dan PostgreSQL sebagai penyimpanan historis."
-      : "Data is published via MQTT to a Node.js backend. Redis is used as a transient stream buffer and PostgreSQL stores historical data.",
-    app: isId ? "Layer Aplikasi" : "Application Layer",
+      ? "Node.js backend menerima data dari Raspberry Pi melalui REST API dan memprosesnya untuk validasi threshold. Data disimpan di PostgreSQL untuk riwayat dan analisis. WebSocket digunakan untuk push update real-time ke dashboard tanpa perlu pooling."
+      : "The Node.js backend receives data from the Raspberry Pi via REST API and processes it for threshold validation. Data is stored in PostgreSQL for history and analysis. WebSocket is used to push real-time updates to the dashboard without polling.",
+    app: isId ? "Layer Display & Dashboard" : "Display & Dashboard Layer",
     appBody: isId
-      ? "Dashboard React menampilkan alarm, trend, dan status line tanpa refresh halaman menggunakan push update via WebSocket."
-      : "The React dashboard shows alarms, trends, and line status without page refresh using WebSocket push updates.",
-    delay: isId ? "Keterlambatan Laporan" : "Reporting Delay",
-    visibility: isId ? "Visibilitas Operasional" : "Operational Visibility",
-    reliability: isId ? "Keandalan" : "Reliability"
+      ? "PC Mini di lantai produksi menjalankan React dashboard yang menampilkan visualisasi real-time: status mesin, indikator suhu, count produksi, dan alert threshold. Dashboard menggunakan autorefresh via WebSocket sehingga operator melihat data terkini tanpa interaksi manual."
+      : "A PC Mini on the production floor runs a React dashboard that displays real-time visualizations: machine status, temperature indicators, production count, and threshold alerts. The dashboard uses WebSocket auto-refresh so operators see current data without manual interaction.",
+    delay: isId ? "Deteksi Downtime" : "Downtime Detection",
+    visibility: isId ? "Visibilitas Produksi" : "Production Visibility",
+    reliability: isId ? "Akurasi Data" : "Data Accuracy",
   };
 
   return (
@@ -39,8 +39,8 @@ export default function CaseStudyPage() {
         title={isId ? "Studi Kasus" : "Case Study"}
         description={
           isId
-            ? "Studi kasus end-to-end sistem monitoring rework: edge device, MQTT, backend processing, sampai dashboard operator."
-            : "End-to-end case study of a rework monitoring system: edge devices, MQTT, backend processing, and operator dashboard."
+            ? "Studi kasus implementasi PC Mini Industrial Dashboard: integrasi PLC, Raspberry Pi gateway, Node.js backend, dan dashboard React real-time."
+            : "Case study of PC Mini Industrial Dashboard implementation: PLC integration, Raspberry Pi gateway, Node.js backend, and React real-time dashboard."
         }
         path="/case-study"
       />
@@ -55,7 +55,7 @@ export default function CaseStudyPage() {
       <section className="case-content">
         <article className="page-head reveal">
           <p className="eyebrow mono">{copy.eyebrow}</p>
-          <h1>Real-time Rework Monitoring System</h1>
+          <h1>PC Mini Industrial Dashboard</h1>
           <p>{copy.roleIntro}</p>
         </article>
 
@@ -68,27 +68,27 @@ export default function CaseStudyPage() {
           <h2>{copy.architectureTitle}</h2>
           <div className="flow-grid mono">
             <div className="node">
-              ESP32 + Sensors
+              PLC M-Tech
               <br />
-              <span>Edge Device</span>
+              <span>Modbus TCP</span>
             </div>
             <div className="arrow">-&gt;</div>
             <div className="node">
-              MQTT Broker
+              Raspberry Pi
               <br />
-              <span>Transport</span>
+              <span>Gateway</span>
             </div>
             <div className="arrow">-&gt;</div>
             <div className="node">
-              Node.js + Redis
+              Node.js + WS
               <br />
-              <span>Processing</span>
+              <span>Backend</span>
             </div>
             <div className="arrow">-&gt;</div>
             <div className="node">
-              React Dashboard
+              PC Mini Display
               <br />
-              <span>Operator UI</span>
+              <span>React Dashboard</span>
             </div>
           </div>
         </article>
@@ -116,7 +116,7 @@ export default function CaseStudyPage() {
           <div className="hero-metrics">
             <article>
               <p className="mono">{copy.delay}</p>
-              <h3>24h -&gt; &lt;1s</h3>
+              <h3>15-20 min</h3>
             </article>
             <article>
               <p className="mono">{copy.visibility}</p>

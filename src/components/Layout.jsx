@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       <div className="bg-grid" />
       <header className="topbar container">
         <NavLink className="brand" to="/">
-          HOME
+          ZIDAN.DEV
         </NavLink>
         <nav>
           <NavLink to="/about">{isId ? "Tentang" : "About"}</NavLink>
