@@ -460,6 +460,7 @@ nav a.active {
   border: 1px solid #345d8b;
   border-radius: 10px;
   background: rgba(10, 21, 39, 0.6);
+  color: #f1f5f9;
 }
 
 .flow-grid .node span {
