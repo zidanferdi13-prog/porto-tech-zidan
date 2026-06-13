@@ -76,8 +76,8 @@ export const allProjects = [
       id: "Sistem absensi dan tracking konsumsi makan berbasis RFID card dengan Raspberry Pi, sinkronisasi cloud, dan laporan otomatis.",
       en: "An RFID card-based attendance and meal consumption tracking system with Raspberry Pi, cloud synchronization, and automated reports.",
     },
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1000&q=80",
-    alt: "rfid card reader",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80",
+    alt: "rfid card reader and industrial access system",
     tags: ["Raspberry Pi", "RFID", "Node.js", "PostgreSQL", "Cloud Sync"],
     categories: ["iot", "fullstack", "enterprise"],
     role: {
