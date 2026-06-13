@@ -9,8 +9,8 @@ export const allProjects = [
       id: "Monitoring timbangan material input pada line M-Tech dengan PLC 2 sensor, komunikasi Serial via Raspberry Pi, WebSocket ke Mini PC, dan integrasi MO ke services.ama.id.",
       en: "Input material weighing monitor for the M-Tech line with a 2-sensor PLC, Serial communication via Raspberry Pi, WebSocket to Mini PC, and MO integration to services.ama.id.",
     },
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80",
-    alt: "industrial panel with raspberry pi",
+    image: "/images/dashboard-mtech.png",
+    alt: "PC Mini industrial dashboard real-time monitoring timbangan M-Tech",
     tags: ["Raspberry Pi", "PLC", "Serial RS232", "WebSocket", "Mini PC", "React"],
     categories: ["iot", "fullstack", "dashboard"],
     role: {
