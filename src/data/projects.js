@@ -6,20 +6,20 @@ export const allProjects = [
       en: "PC Mini Industrial Dashboard",
     },
     description: {
-      id: "Dashboard real-time produksi dengan display PC Mini di lantai pabrik, terintegrasi langsung dengan PLC mesin melalui Raspberry Pi gateway.",
-      en: "Real-time production dashboard displayed on a PC Mini on the factory floor, directly integrated with machine PLCs via a Raspberry Pi gateway.",
+      id: "Monitoring timbangan material input pada line M-Tech dengan PLC 2 sensor, komunikasi Serial via Raspberry Pi, WebSocket ke Mini PC, dan integrasi MO ke services.ama.id.",
+      en: "Input material weighing monitor for the M-Tech line with a 2-sensor PLC, Serial communication via Raspberry Pi, WebSocket to Mini PC, and MO integration to services.ama.id.",
     },
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80",
     alt: "industrial panel with raspberry pi",
-    tags: ["Raspberry Pi", "PLC", "Node.js", "WebSocket", "React"],
+    tags: ["Raspberry Pi", "PLC", "Serial RS232", "WebSocket", "Mini PC", "React"],
     categories: ["iot", "fullstack", "dashboard"],
     role: {
-      id: "Lead IoT Engineer",
-      en: "Lead IoT Engineer",
+      id: "IoT System Engineer & Fullstack Developer",
+      en: "IoT System Engineer & Fullstack Developer",
     },
     timeline: {
-      id: "4 minggu",
-      en: "4 weeks",
+      id: "6 minggu",
+      en: "6 weeks",
     },
     problem: {
       id: "Operator dan tim maintenance harus berjalan ke panel kontrol utama setiap kali ingin melihat status mesin M-Tech. Tidak ada display real-time di lantai produksi sehingga indikasi awal kerusakan sering terlewat hingga terjadi downtime.",
