@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Zidan Ferdiansyah Portfolio",
+  "description": "Professional IT System \u0026 IoT Engineer Portfolio landing page showcasing industrial automation, factory digitalization, IoT deployments, skills, experience, and custom systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

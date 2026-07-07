@@ -1,58 +1,20 @@
-# Portofolio Tech Zidan
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-## Development
+# Run and deploy your AI Studio app
 
-```bash
-npm install
-npm run dev
-```
+This contains everything you need to run your app locally.
 
-## Build
+View your app in AI Studio: https://ai.studio/apps/1b6259c1-9f70-4406-823b-860d290327d3
 
-```bash
-npm run build
-```
+## Run Locally
 
-## Project Data Workflow (Admin -> Source Code)
+**Prerequisites:**  Node.js
 
-1. Open `/admin` in browser.
-2. Click `Download JSON` to export latest project data.
-3. Save the file as `projects-export.json` in project root.
-4. Sync it into source file:
 
-```bash
-npm run sync:projects -- --input projects-export.json
-```
-
-5. Rebuild and verify:
-
-```bash
-npm run build
-```
-
-Notes:
-- `/admin` data is stored in browser localStorage.
-- `sync:projects` writes to `src/data/projects.js` so changes become permanent in git/deploy.
-
-## Admin Protection
-
-- In development (`npm run dev`), `/admin` is open.
-- In production, set `VITE_ADMIN_KEY` to enable unlock form.
-- Without `VITE_ADMIN_KEY`, admin route shows disabled notice.
-
-## Vercel Deployment Checklist
-
-1. Set environment variables in Vercel Project Settings:
-	- `VITE_SITE_URL`
-	- `VITE_ADMIN_KEY`
-	- `CONTACT_WEBHOOK_URL` (optional)
-	- `CONTACT_ALLOWED_ORIGINS` (recommended)
-2. Update `public/robots.txt` and `public/sitemap.xml` to your real domain.
-3. Ensure admin data is synced to source before deploy:
-
-```bash
-npm run sync:projects -- --input projects-export.json
-npm run build
-```
-
-4. Deploy to Vercel (the included `vercel.json` handles SPA rewrites and security headers).
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
