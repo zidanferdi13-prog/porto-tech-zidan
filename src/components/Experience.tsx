@@ -45,7 +45,7 @@ export default function Experience() {
       id: "exp_2",
       jobTitle: language === "en" ? "IoT Engineer" : "IoT Engineer",
       company: "PT Pamapersada Nusantara",
-      period: language === "en" ? "Mar 2024 – Present" : "Mar 2024 – Sekarang",
+      period: language === "en" ? "Mar 2024 – Nov 2025" : "Mar 2024 – Nov 2025",
       location: language === "en" ? "Indonesia" : "Indonesia",
       isCurrent: true,
       responsibilities: language === "en" ? [
